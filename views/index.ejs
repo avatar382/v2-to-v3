@@ -1,0 +1,27 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Farmer's Market</h1>
+    <p>Welcome to the Farmer's Market!</p>
+    <a href="/addVendor" class="btn btn-primary">Add A New Vendor</a>
+  </div>
+
+  <div class="row">
+    <% vendors.forEach(function(vendor) { %>
+      <div class="col-sm-6 col-lg-4 vendor">
+        <div class="container">
+          <h3><%= vendor.name %></h3>
+          <p><%= vendor.description %></p>
+        </div>
+
+        <div class="thumbnail">
+          <img src="<%= vendor.image %>" />
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+</div>
+
+<% include partials/footer.ejs %>

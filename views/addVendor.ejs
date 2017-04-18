@@ -1,0 +1,25 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+  <h2>Add Vendor</h2>
+  <form action="/addVendor" method="post">
+    <div class="form-group">
+      <label for="vendor_name">Vendor Name</label>
+      <input type="text" name="vendor_name" class="form-control" id="vendor_name" placeholder="Vendor Name">
+    </div>
+
+    <div class="form-group">
+      <label for="vendor_description">Description</label>
+      <input type="text" name="vendor_description" class="form-control" id="vendor_description" placeholder="Description">
+    </div>
+
+    <div class="form-group">
+      <label for="vendor_img">Image Link</label>
+      <input type="text" name="vendor_img" class="form-control" id="vendor_img" placeholder="Image Link">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <a href="/" class="btn btn-danger">Cancel</a>
+  </form>
+</div>
+
+<% include partials/footer.ejs %>
