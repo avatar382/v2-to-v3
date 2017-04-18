@@ -24,23 +24,33 @@ var vendorSchema = new mongoose.Schema({
 // Create model object
 var Vendor = mongoose.model("Vendor", vendorSchema);
 
-// home page, display all vendors
+
+// ROOT
 app.get("/", function(req, res) {
+  res.redirect("/vendors");
+});
+
+
+// INDEX
+// home page, display all vendors
+app.get("/vendors", function(req, res) {
   Vendor.find({}, function(err, vendors) {
     if(err) {
       console.log(err);
     } else {
-      res.render("index", {vendors: vendors});
+      res.render("vendors/index", {vendors: vendors});
     }
   });
 });
 
+// NEW
 // create a new vendor
-app.get("/addVendor", function(req, res) {
-  res.render("addVendor");
+app.get("/vendors/new", function(req, res) {
+  res.render("vendors/new");
 });
 
-app.post("/addVendor", function(req, res) {
+// CREATE
+app.post("/vendors", function(req, res) {
   // get parameters from body
   var new_vendor_name        = req.body.vendor_name;
   var new_vendor_description = req.body.vendor_description;
